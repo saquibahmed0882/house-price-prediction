@@ -29,16 +29,6 @@ King County House Sales Dataset
 
 ## Project Structure
 
-house-price-prediction
-│
-├── app.py
-├── main.py
-├── house_price_model.pkl
-├── dataset
-│   └── kc_house_data.csv
-├── requirements.txt
-└── README.md
-
 ## Screenshots
 
 ### Streamlit Web Application
