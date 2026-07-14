@@ -38,8 +38,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # Create Model
 model = RandomForestRegressor(
-    n_estimators=100,
-    random_state=42
+    n_estimators=50,
+    random_state=42,
+    n_jobs=-1
 )
 
 
@@ -57,7 +58,9 @@ print("R2 Score:", r2_score(y_test, prediction))
 
 
 # Save Model
-with open("house_price_model.pkl", "wb") as file:
-    pickle.dump(model, file)
+# Save Model
+import joblib
+
+joblib.dump(model, "house_price_model.pkl", compress=3)
 
 print("Model saved successfully!")

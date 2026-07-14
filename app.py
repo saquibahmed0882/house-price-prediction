@@ -1,17 +1,10 @@
 import streamlit as st
-import pickle
+import joblib
 import numpy as np
 
 
 # Load trained model
-model = pickle.load(open("house_price_model.pkl", "rb"))
-
-
-# App Title
-st.title("🏠 House Price Prediction App")
-
-st.write("Enter house details to predict the price")
-
+model = joblib.load("house_price_model.pkl")
 
 # User Inputs
 
