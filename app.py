@@ -3,7 +3,7 @@ import joblib
 import numpy as np
 
 
-# Page Configuration
+
 st.set_page_config(
     page_title="House Price Prediction App",
     page_icon="🏠",
@@ -11,11 +11,11 @@ st.set_page_config(
 )
 
 
-# Load Model
+
 model = joblib.load("house_price_model.pkl")
 
 
-# Header Section
+
 st.title("🏠 House Price Prediction App")
 
 st.markdown("""
@@ -29,7 +29,7 @@ based on property features using a Random Forest Regression model.
 st.divider()
 
 
-# Sidebar Information
+
 st.sidebar.title("📌 Project Information")
 
 st.sidebar.markdown("""
@@ -60,7 +60,7 @@ Mean Absolute Error:
 """)
 
 
-# Input Section
+
 st.subheader("🏡 Enter House Details")
 
 
@@ -156,7 +156,7 @@ sqft_basement = st.number_input(
 
 
 
-# Prediction
+
 if st.button("🔮 Predict House Price"):
 
     input_data = np.array([[
