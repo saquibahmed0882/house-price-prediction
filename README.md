@@ -29,19 +29,32 @@ King County House Sales Dataset
 
 ## Project Structure
 
-## Screenshots
+#house-price-prediction
+│
+├── app.py
+├── main.py
+├── house_price_model.pkl
+├── dataset
+│   └── kc_house_data.csv
+├── requirements.txt
+└── README.md
+ 
+ ## Screenshots
 
 ### Streamlit Web Application
+
 (Add your app screenshot here)
 
 ## Results
+
 The model successfully predicts house prices based on user-provided property features.
 
 ## Future Improvements
+
 - Improve model accuracy using advanced algorithms
 - Add more feature engineering
 - Deploy application on cloud platforms
 
 ## Author
+
 Saquib Ahmed
- 
