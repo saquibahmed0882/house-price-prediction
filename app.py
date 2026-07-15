@@ -1,3 +1,4 @@
+import database.database as db
 import streamlit as st
 import joblib
 import numpy as np
@@ -6,16 +7,6 @@ import pandas as pd
 from utils.currency import convert_currency
 from utils.location import get_countries, get_states, get_cities
 from utils.pdf_report import generate_pdf
-from database.database import (
-    create_database,
-    create_user_table,
-    save_prediction,
-    get_predictions,
-    register_user,
-    login_user
-)
-
-
 
 
 st.set_page_config(
@@ -26,13 +17,14 @@ st.set_page_config(
 
 
 
+
 model = joblib.load("house_price_model.pkl")
 
 
 
 
-create_database()
-create_user_table()
+db.create_database()
+db.create_user_table()
 
 
 
@@ -97,7 +89,7 @@ if not st.session_state.logged_in:
 
             else:
 
-                result = register_user(
+                result = db.register_user(
                     name,
                     email,
                     password
@@ -121,7 +113,7 @@ if not st.session_state.logged_in:
 
         if st.button("User Login"):
 
-            user = login_user(
+            user = db.login_user(
                 email,
                 password
             )
@@ -175,7 +167,7 @@ if st.sidebar.button("🚪 Logout"):
 
 def show_history():
 
-    history = get_predictions()
+    history = db.get_predictions()
 
 
     if history:
@@ -432,7 +424,7 @@ if st.button("🔮 Predict House Price"):
 
     
 
-    save_prediction(
+    db.save_prediction(
         country,
         state,
         city,
