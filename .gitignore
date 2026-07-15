@@ -1,4 +1,5 @@
 __pycache__/
 *.pyc
 .DS_Store
-*.dbHouse_Price_Report.pdf
+*.db
+House_Price_Report.pdf
