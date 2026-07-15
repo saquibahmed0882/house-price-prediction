@@ -133,3 +133,4 @@ def login_user(email,password):
 
     return user
 
+    VERSION = "2.0"
