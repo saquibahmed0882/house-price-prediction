@@ -62,35 +62,62 @@ if "logged_in" not in st.session_state:
 
 if not st.session_state.logged_in:
 
-    st.title("🔐 Admin Login")
+    st.title("🏠 House Price Prediction")
 
-
-    email = st.text_input("Email")
-
-
-    password = st.text_input(
-        "Password",
-        type="password"
+    option = st.radio(
+        "Select Option",
+        ["👤 User Login", "📝 Register", "👨‍💼 Admin Login"]
     )
 
+    if option == "📝 Register":
 
-    if st.button("Login"):
+        st.subheader("Create Account")
 
-        if email == ADMIN_EMAIL and password == ADMIN_PASSWORD:
+        name = st.text_input("Full Name")
 
-            st.session_state.logged_in = True
+        email = st.text_input("Email")
 
-            st.success("Login Successful 🎉")
+        password = st.text_input("Password", type="password")
 
-            st.rerun()
+        confirm = st.text_input("Confirm Password", type="password")
 
-        else:
+        if st.button("Create Account"):
+            st.info("Registration feature will be connected in the next step.")
 
-            st.error("Wrong Email or Password")
+    elif option == "👤 User Login":
 
+        st.subheader("User Login")
+
+        email = st.text_input("Email")
+
+        password = st.text_input("Password", type="password")
+
+        if st.button("User Login"):
+            st.info("User login will be connected in the next step.")
+
+    else:
+
+        st.subheader("Admin Login")
+
+        email = st.text_input("Admin Email")
+
+        password = st.text_input("Admin Password", type="password")
+
+        if st.button("Admin Login"):
+
+            if email == ADMIN_EMAIL and password == ADMIN_PASSWORD:
+
+                st.session_state.logged_in = True
+
+                st.success("Login Successful 🎉")
+
+                st.rerun()
+
+            else:
+
+                st.error("Wrong Admin Email or Password")
 
     st.stop()
-
 
 
 
