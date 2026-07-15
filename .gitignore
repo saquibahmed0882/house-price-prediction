@@ -3,3 +3,4 @@ __pycache__/
 .DS_Store
 *.db
 House_Price_Report.pdf
+*.db

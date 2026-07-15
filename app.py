@@ -6,7 +6,14 @@ import pandas as pd
 from utils.currency import convert_currency
 from utils.location import get_countries, get_states, get_cities
 from utils.pdf_report import generate_pdf
-from database.database import create_database, save_prediction, get_predictions
+from database.database import (
+    create_database,
+    create_user_table,
+    save_prediction,
+    get_predictions,
+    register_user,
+    login_user
+)
 
 
 
@@ -25,6 +32,7 @@ model = joblib.load("house_price_model.pkl")
 
 
 create_database()
+create_user_table()
 
 
 
@@ -82,7 +90,26 @@ if not st.session_state.logged_in:
         confirm = st.text_input("Confirm Password", type="password")
 
         if st.button("Create Account"):
-            st.info("Registration feature will be connected in the next step.")
+
+            if password != confirm:
+
+                st.error("Passwords do not match")
+
+            else:
+
+                result = register_user(
+                    name,
+                    email,
+                    password
+                )
+
+                if result:
+
+                    st.success("Account created successfully 🎉")
+
+                else:
+
+                    st.error("Email already registered")
 
     elif option == "👤 User Login":
 
@@ -93,7 +120,23 @@ if not st.session_state.logged_in:
         password = st.text_input("Password", type="password")
 
         if st.button("User Login"):
-            st.info("User login will be connected in the next step.")
+
+            user = login_user(
+                email,
+                password
+            )
+
+            if user:
+
+                st.session_state.logged_in = True
+
+                st.success("Login Successful 🎉")
+
+                st.rerun()
+
+            else:
+
+                st.error("Invalid email or password")
 
     else:
 
