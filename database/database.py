@@ -13,12 +13,14 @@ def create_database():
 
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS predictions(
+
         country TEXT,
         state TEXT,
         city TEXT,
         price REAL,
         currency TEXT,
         date TEXT
+
     )
     """)
 
@@ -27,7 +29,7 @@ def create_database():
 
 
 
-def save_prediction(country, state, city, price, currency):
+def save_prediction(country,state,city,price,currency):
 
     conn = sqlite3.connect(DATABASE)
 
