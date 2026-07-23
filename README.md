@@ -1,3 +1,15 @@
+<div align="center">
+
+# 🏠 House Price Prediction using Machine Learning
+
+</div>
+
+<div align="center">
+
+![House Price Prediction Banner](assets/banner.png)
+
+</div>
+
 # 🏠 House Price Prediction App
 
 ## Project Overview
