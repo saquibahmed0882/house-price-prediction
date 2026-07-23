@@ -3,6 +3,11 @@
 ## Project Overview
 A Machine Learning based House Price Prediction system that predicts house prices using property features. The model is trained using Random Forest Regression and deployed as an interactive Streamlit web application.
 
+## 🚀 Live Demo
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green)](https://house-price-prediction-ai0786.streamlit.app/)
+Click above to try the application.
+
 ## Features
 - House price prediction using Machine Learning
 - Interactive web interface using Streamlit
